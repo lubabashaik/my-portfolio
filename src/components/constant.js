@@ -17,6 +17,7 @@ import ml from "../assets/icons/skills-icon/ml.png";
 // projectImagess
 import respireX from "../assets/images/projectImages/project10.jpg";
 import cliniclink from "../assets/images/projectImages/project12.png";
+import arisescholar from "../assets/images/projectImages/project13.png";
 import insightify from "../assets/images/projectImages/project11.png";
 import qz from "../assets/images/projectImages/project2.png";
 import tesla from "../assets/images/projectImages/project3.png";
@@ -69,6 +70,21 @@ export const Projects = {
       reportLink: "",
     },
     githubLink: "https://github.com/IrfanNaikwade28/Insightify.git",
+  },
+  AriseScholar: {
+    image: arisescholar, // replace with your imported image variable
+    title: "AriseScholar",
+    subTitle: "AI-Powered Study Companion",
+    insights: {
+      desc: `AriseScholar is an AI-driven platform that converts study materials
+                 (PDFs, DOCX, PYQs) into structured notes, flashcards, and quizzes.
+                 It provides a clean dashboard to track progress and practice smarter,
+                 helping students learn efficiently with AI-assisted summaries and quizzes.`,
+      category: "Education, AI, Web Application",
+      techStack: [react, tailwind, django, py],
+      reportLink: "", // add if you have a report or demo link
+    },
+    githubLink: "https://github.com/IrfanNaikwade28/AriseScholar.git",
   },
   MetaShield: {
     image: metashield,
