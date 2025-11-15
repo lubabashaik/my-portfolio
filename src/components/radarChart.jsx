@@ -1,39 +1,50 @@
-import { Radar } from "react-chartjs-2";
 import {
   Chart as ChartJS,
+  Filler,
+  Legend,
+  LineElement,
+  PointElement,
+  RadialLinearScale,
+  Tooltip,
+} from "chart.js";
+import { Radar } from "react-chartjs-2";
+
+// Register chart.js components
+ChartJS.register(
   RadialLinearScale,
   PointElement,
   LineElement,
   Filler,
   Tooltip,
-  Legend,
-} from "chart.js";
-
-// Register chart.js components
-ChartJS.register(RadialLinearScale, PointElement, LineElement, Filler, Tooltip, Legend);
+  Legend
+);
 
 export const RadarChart = () => {
   const data = {
     labels: [
-      "JavaScript",
+      "HTML",
+      "css",
+      "js",
+      "Typescript",
+      "Next",
       "React",
-      "Node.js",
-      "Figma",
-      "CSS",
-      "Tailwind CSS",
-      "Next.js",
-      "MongoDB",
-      "Python",
-      "C/C++",
+      "tailwind",
+      "Restapis",
+      "Github",
+      "prettier",
+      "MaterialUI",
+      "ShadcnUI",
+      "figma",
     ],
     datasets: [
       {
-        label: "Skill Proficiency (%)",
-        data: [80, 70, 60, 75, 80, 80, 40, 75, 60, 60],
+        label: "Skill Proficiency (100%)",
+        // Ensure values don't exceed 100 and number of data points matches labels (13)
+        data: [80, 100, 90, 100, 100, 100, 70, 200, 100, 100, 60, 90, 100],
         backgroundColor: "rgba(128, 255, 210, 0.3)",
-        borderColor: "#80ffd2", 
+        borderColor: "#80ffd2",
         borderWidth: 2,
-        pointBackgroundColor: "#80ffd2", 
+        pointBackgroundColor: "#80ffd2",
         pointBorderColor: "#ffffff",
         pointHoverBackgroundColor: "#ffffff",
         pointHoverBorderColor: "#80ffd2",
@@ -55,12 +66,14 @@ export const RadarChart = () => {
           font: {
             size: 14,
           },
-          color: "#80ffd2", 
+          color: "#80ffd2",
         },
         ticks: {
           beginAtZero: true,
           color: "#666", // Tick mark color
           stepSize: 20, // Increment for tick values
+          min: 0,
+          max: 100, // Fix the radial scale to 0-100 so changing one value doesn't rescale the chart
         },
       },
     },
@@ -70,7 +83,7 @@ export const RadarChart = () => {
         labels: {
           color: "#80ffd2",
           font: {
-            size: 12,
+            size: 14,
           },
         },
       },
@@ -78,7 +91,10 @@ export const RadarChart = () => {
   };
 
   return (
-    <div className="flex justify-center mt-5 h-full bg-cover" style={{ width: "100%",height:"100%" }}>
+    <div
+      className="flex justify-center mt-5 h-full bg-cover"
+      style={{ width: "100%", height: "100%" }}
+    >
       <Radar className="md:w-radarWidth" data={data} options={options} />
     </div>
   );

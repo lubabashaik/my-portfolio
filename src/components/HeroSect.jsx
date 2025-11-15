@@ -3,18 +3,31 @@ import { useState, useEffect } from "react";
 import heroIllustration from "../assets/images/Hero-illustrations.png";
 import linkedin from "../assets/icons/linkedin.svg";
 import github from "../assets/icons/github.svg";
+import instagram from "../assets/icons/instagram.png";
 import scrollIcon from "../assets/icons/scroll-animation.svg";
+
 export const HeroSect = () => {
-  const [word, setWord] = useState("Developer");
-  const words = ["Developer", "Designer"];
+  // ⤵︎ Animated words (cycle forward then backward)
+  const words = ["FrontEnd", "UI/UX", "ReactJs", "NextJs", "Web"];
+  const [index, setIndex] = useState(0);
+  const [dir, setDir] = useState(1);
+  const word = words[index];
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setWord((prev) => (prev === words[0] ? words[1] : words[0]));
+      setIndex((i) => {
+        const next = i + dir;
+        if (next >= words.length || next < 0) {
+          // reverse direction at the ends
+          setDir((d) => -d);
+          return i + -dir;
+        }
+        return next;
+      });
     }, 3000);
-
     return () => clearInterval(interval);
-  });
+  }, [dir, words.length]);
+
   return (
     <>
       <div id="Home" className="flex justify-center">
@@ -22,34 +35,35 @@ export const HeroSect = () => {
           <div className="heroText h-full w-full z-30 flex flex-col md:justify-center">
             <div className="flex flex-col text-white pl-5 tracking-wide md:gap-1">
               <span className="font-semibold text-2xl md:text-4xl">
-                Hi! I&apos;m Irfan,
+                Hi! I&apos;m Lubaba Shaik,
               </span>
-              <span className="font-semibold text-2xl md:text-4xl flex">
-                A Web&nbsp;
+
+              {/* Title line: animated word + sticky "Developer" */}
+              <span className="font-semibold text-2xl md:text-4xl flex items-baseline">
+                A&nbsp;
                 <motion.span
                   key={word}
-                  initial={{ width: 0 }}
-                  whileInView={{ width: "fit-content" }}
+                  initial={{ width: "fit-content" }}     // start fully shown
+                  animate={{ width: 0 }}                 // then collapse (reverse of before)
                   transition={{
                     duration: 1.5,
                     repeat: Infinity,
-                    repeatType: "reverse",
+                    repeatType: "reverse",               // yo-yo to reveal/hide
+                    ease: "easeInOut",
                   }}
-                  className="bg-fontBlue text-transparent bg-clip-text overflow-hidden mr-1 will-change-transform will-change-opacity"
+                  className="bg-fontBlue text-transparent bg-clip-text overflow-hidden mr-1 will-change-transform will-change-opacity whitespace-nowrap"
                 >
                   {word}
                 </motion.span>
+                &nbsp;Developer
                 <motion.span
-                  className="h-full w-[1px] bg-fontBlue whileInView-pulse"
+                  className="h-full w-[1px] bg-fontBlue ml-1"
                   initial={{ opacity: 1 }}
-                  whileInView={{ opacity: 0 }}
-                  transition={{
-                    duration: 1,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                ></motion.span>
+                  animate={{ opacity: [1, 0, 1] }}
+                  transition={{ duration: 1, repeat: Infinity, ease: "easeInOut" }}
+                />
               </span>
+
               <motion.span
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
@@ -61,6 +75,7 @@ export const HeroSect = () => {
                 solutions.
               </motion.span>
             </div>
+
             <div className="buttons max-sm:absolute bottom-10 w-full flex max-sm:items-center max-md:flex-col text-white gap-3 text-[10px] tracking-widest pl-4 md:pl-5 mt-5">
               <motion.a
                 initial={{ opacity: 0 }}
@@ -77,6 +92,7 @@ export const HeroSect = () => {
                   Explore Projects
                 </motion.button>
               </motion.a>
+
               <motion.a
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
@@ -93,27 +109,28 @@ export const HeroSect = () => {
                 </motion.button>
               </motion.a>
             </div>
+
             <div className="social-icons w-20 flex justify-center items-center gap-3 h-10 mt-5 ml-5">
               <motion.a
                 initial={{ opacity: 0, y: 20 }}
+               
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1 }}
-                className=""
-                href="https://www.linkedin.com/in/irfan-naikwade/"
+                href="https://www.linkedin.com/in/shaik-lubaba/"
                 target="_blank"
               >
                 <img
-                  className="w-7 cursor-pointer hover:scale-125 duration-100 transition-all"
+                  className="w-9 cursor-pointer hover:scale-125 duration-100 transition-all"
                   src={linkedin}
                   alt=""
                 />
               </motion.a>
               <motion.a
                 initial={{ opacity: 0, y: 20 }}
+               
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.2 }}
-                className=""
-                href="https://github.com/IrfanNaikwade28"
+                href="https://github.com/lubabashaik"
                 target="_blank"
               >
                 <img
@@ -122,8 +139,23 @@ export const HeroSect = () => {
                   alt=""
                 />
               </motion.a>
+              <motion.a
+                initial={{ opacity: 0, y: 20 }}
+              
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.2 }}
+                href="https://instagram.com/bl.a_.k_.e_v_l_06"
+                target="_blank"
+              >
+                <img
+                  className="w-9 cursor-pointer hover:scale-125 transition-all"
+                  src={instagram}
+                  alt=""
+                />
+              </motion.a>
             </div>
           </div>
+
           <div className="heroIllustration flex flex-col items-center w-full h-full absolute">
             <motion.img
               initial={{ opacity: 0, scale: 0.3 }}
@@ -133,7 +165,7 @@ export const HeroSect = () => {
               src={heroIllustration}
               alt=""
             />
-        <div className="absolute bottom-40 md:bottom-5">
+            <div className="absolute bottom-40 md:bottom-5">
               <div className="scroll-icon">
                 <motion.img
                   initial={{ opacity: 0 }}

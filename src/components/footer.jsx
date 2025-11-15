@@ -1,6 +1,6 @@
 import github from "../assets/icons/github.svg";
+import instagram from "../assets/icons/instagram.png";
 import linkedin from "../assets/icons/linkedin.svg";
-import chess from "../assets/icons/chess.svg";
 export const Footer = () => {
   return (
     <>
@@ -27,45 +27,48 @@ export const Footer = () => {
           <div className="icon">
             <a
               className=""
-              href="https://github.com/IrfanNaikwade28"
+              href="https://github.com/lubabashaik"
               target="_blank"
+              rel="noopener noreferrer"
             >
               <img
-                className="cursor-pointer hover:scale-105"
+                className="cursor-pointer hover:scale-105 w-[30px] h-[30px] object-contain"
                 src={github}
-                alt=""
+                alt="GitHub"
               />
             </a>
           </div>
           <div className="icon">
             <a
               className=""
-              href="https://www.linkedin.com/in/irfan-naikwade/"
+              href="https://www.linkedin.com/in/shaiklubaba/"
               target="_blank"
+              rel="noopener noreferrer"
             >
               <img
-                className="cursor-pointer hover:scale-105"
+                className="cursor-pointer hover:scale-105 w-[30px] h-[30px] object-contain"
                 src={linkedin}
-                alt=""
+                alt="LinkedIn"
               />
             </a>
           </div>
-          <a
-            href="https://www.chess.com/member/irfannaikwade28"
-            target="_blank"
-            className="icon"
-          >
-            <img
-              className="cursor-pointer hover:scale-105"
-              src={chess}
-              alt=""
-            />
-          </a>
+          <div className="icon">
+            <a
+              href="https://instagram.com/bl.a_.k_.e_v_l_06"
+              target="_blank"
+              rel="noopener noreferrer"
+              className=""
+            >
+              <img
+                className="cursor-pointer hover:scale-105 w-[30px] h-[30px] object-contain"
+                src={instagram}
+                alt="Instagram"
+              />
+            </a>
+          </div>
         </div>
         <div className="text-white font-extralight text-xs text-center my-5">
-          <div className="title">
-            ©2025 Irfan Naikwade. All rights reserved.
-          </div>
+          <div className="title">Shaik Lubaba.</div>
           <div className="title">Bringing ideas to life with code.</div>
           <div className="title">Thanks for visiting!.</div>
         </div>

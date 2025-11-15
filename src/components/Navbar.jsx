@@ -1,4 +1,3 @@
-import logo from "../assets/icons/logo.svg";
 import menu from "../assets/icons/menu.svg";
 import close from "../assets/icons/close.svg";
 import { useState } from "react";
@@ -9,20 +8,43 @@ export const Navbar = () => {
       <div className="flex w-full justify-center">
         <nav className="flex h-[15vh] w-full justify-between px-5 py-10 max-w-[60rem]">
           <div className="logo">
-            <img className="w-24 md:w-28" src={logo} alt="" />
+            <h1
+              className="text-2xl font-semibold text-white"
+              style={{ fontFamily: "'Poppins', sans-serif" }}
+            >
+              lubaba
+              <span className="bg-gradient-to-r from-[#ff8ba7] to-[#a78bfa] bg-clip-text text-transparent">
+                .dev
+              </span>
+            </h1>
           </div>
           <div onClick={() => setToggle(!toggle)} className="menu md:hidden">
             <img className="w-8" src={menu} alt="" />
           </div>
           <div className="menu-items hidden md:flex gap-8 text-xs text-white uppercase z-30">
-            <a href="#Home" className="menu-item cursor-pointer hover:text-white/60">
+            <a
+              href="#Home"
+              className="menu-item cursor-pointer hover:text-white/60"
+            >
               Home
             </a>
-            <a href="#Projects" className="menu-item cursor-pointer hover:text-white/60">
+            <a
+              href="#Experience"
+              className="menu-item cursor-pointer hover:text-white/60"
+            >
+              Experience
+            </a>
+            <a
+              href="#Projects"
+              className="menu-item cursor-pointer hover:text-white/60"
+            >
               Projects
             </a>
-            <a href="#About" className="menu-item cursor-pointer hover:text-white/60">
-              About Us
+            <a
+              href="#About"
+              className="menu-item cursor-pointer hover:text-white/60"
+            >
+              About Me
             </a>
           </div>
         </nav>
@@ -41,19 +63,41 @@ export const Navbar = () => {
           />
         </div>
         <div className="text text-white uppercase text-5xl font-extralight flex flex-col gap-10 h-full">
-          <a onClick={() => setToggle(!toggle)} href="#Home" className="menu-item cursor-pointer">
+          <a
+            onClick={() => setToggle(!toggle)}
+            href="#Home"
+            className="menu-item cursor-pointer"
+          >
             Home
           </a>
-          <a onClick={() => setToggle(!toggle)} href="#Projects" className="menu-item cursor-pointer">
+          <a
+            onClick={() => setToggle(!toggle)}
+            href="#Projects"
+            className="menu-item cursor-pointer"
+          >
             Projects
           </a>
-          <a onClick={() => setToggle(!toggle)} href="#About" className="menu-item cursor-pointer">
+          <a
+            onClick={() => setToggle(!toggle)}
+            href="#About"
+            className="menu-item cursor-pointer"
+          >
             About Us
           </a>
-          <a onClick={() => setToggle(!toggle)&alert('Page is under Development')} href="#" className="menu-item cursor-pointer">
+          <a
+            onClick={() =>
+              setToggle(!toggle) & alert("Page is under Development")
+            }
+            href="#"
+            className="menu-item cursor-pointer"
+          >
             Blog
           </a>
-          <a onClick={() => setToggle(!toggle)} href="#Contact" className="buttons w-full flex flex-col items-center text-white mt-3 gap-3 text-[11px] tracking-widest">
+          <a
+            onClick={() => setToggle(!toggle)}
+            href="#Contact"
+            className="buttons w-full flex flex-col items-center text-white mt-3 gap-3 text-[11px] tracking-widest"
+          >
             <button className="text-[#80FFD2] border-2 border-[#80FFD2] hover:bg-[#80FFD2] hover:text-[#161B23] rounded-3xl w-[70vw] py-3 uppercase text-center font-semibold cursor-pointer">
               Get in Touch
             </button>

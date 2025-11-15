@@ -1,19 +1,36 @@
-import { RadarChart } from "./radarChart";
 import { easeInOut, motion } from "motion/react";
 import doc from "../assets/doc/download.pdf";
-import character from "../assets/images/character-removebg-preview.png";
-import js from "../assets/icons/skills-icon/javascript.svg";
-import cpp from "../assets/icons/skills-icon/cpp.svg";
 import css from "../assets/icons/skills-icon/css.svg";
 import figma from "../assets/icons/skills-icon/figma.svg";
-import md from "../assets/icons/skills-icon/mongodb.svg";
-import next from "../assets/icons/skills-icon/nextjs.svg";
-import node from "../assets/icons/skills-icon/nodejs.svg";
-import py from "../assets/icons/skills-icon/python.svg";
-import react from "../assets/icons/skills-icon/react-js.svg";
+import Github from "../assets/icons/skills-icon/github.png";
+import HTML from "../assets/icons/skills-icon/html.png";
+import js from "../assets/icons/skills-icon/javascript.svg";
+import MaterialUI from "../assets/icons/skills-icon/material-ui.png";
+import Next from "../assets/icons/skills-icon/nextjs.svg";
+import prettier from "../assets/icons/skills-icon/prettier.png";
+import React from "../assets/icons/skills-icon/react-js.svg";
+import Restapis from "../assets/icons/skills-icon/Rest-apis.png";
+import ShadcnUI from "../assets/icons/skills-icon/shadcn-ui.png";
 import tailwind from "../assets/icons/skills-icon/tailwindcss.svg";
+import Typescript from "../assets/icons/skills-icon/TS.png";
+import character from "../assets/images/character-removebg-preview.png";
+import { RadarChart } from "./radarChart";
 export const AboutMe = () => {
-  const skillIcons = [js, cpp, css, figma, md, next, node, py, react, tailwind];
+  const skillIcons = [
+    HTML,
+    css,
+    js,
+    Typescript,
+    Next,
+    React,
+    tailwind,
+    Restapis,
+    Github,
+    prettier,
+    MaterialUI,
+    ShadcnUI,
+    figma,
+  ];
   return (
     <>
       <div id="About" className="flex justify-center">
@@ -89,16 +106,16 @@ export const AboutMe = () => {
                 viewport={{ amount: 0.7 }}
                 className="about-me text-white text-sm leading-5 mt-3 text-justify"
               >
-                Hi, I&apos;m Irfan! I’ve completed a Diploma in Computer Science
-                and Engineering and I am currently pursuing a B.Tech in Data
-                Science. With a passion for web development and design, I’m
-                dedicated to creating dynamic and responsive websites that
-                deliver seamless user experiences.
+                Hi, I&apos;m Lubaba! Frontend Engineer building performant,
+                accessible, and scalable web applications. Skilled in React.js,
+                Next.js, TypeScript, and modern UI frameworks, delivering
+                high-quality interfaces that enhance usability and engagement.
+                Known for writing clean, maintainable code and collaborating
+                effectively with design and backend teams to translate ideas
+                into seamless digital experiences.
               </motion.div>
               <a href={doc} target="_blank">
-                <button
-                  className="bg-color1 text-white hover:bg-color1Hover rounded-3xl text-center font-semibold cursor-pointer w-2/3 h-[5vh] tracking-widest text-sm mt-5"
-                >
+                <button className="bg-color1 text-white hover:bg-color1Hover rounded-3xl text-center font-semibold cursor-pointer w-2/3 h-[5vh] tracking-widest text-sm mt-5">
                   Download CV
                 </button>
               </a>
